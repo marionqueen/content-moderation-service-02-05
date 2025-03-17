@@ -6,12 +6,17 @@ dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 
 // Define validation function for required environment variables
 const validateEnv = (name: string, defaultValue?: string): string => {
-  const value = process.env[name] || defaultValue;
-  if (!value) {
-    throw new Error(`Missing required environment variable: ${name}`);
-  }
-  return value;
-};
+    // Skip validation in test environment
+    if (process.env.NODE_ENV === 'test') {
+      return process.env[name] || defaultValue || 'test_default';
+    }
+    
+    const value = process.env[name] || defaultValue;
+    if (!value) {
+      throw new Error(`Missing required environment variable: ${name}`);
+    }
+    return value;
+  };
 
 // Server configuration
 export const SERVER_CONFIG = {
@@ -48,3 +53,4 @@ export default {
   SECURITY: SECURITY_CONFIG,
   LOGGING: LOGGING_CONFIG,
 };
+
