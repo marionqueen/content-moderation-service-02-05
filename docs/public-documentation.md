@@ -1,4 +1,4 @@
-```markdown
+
 
 Public API Documentation Deployment
 This document explains how the public API documentation is generated and deployed to GitHub Pages.
@@ -22,11 +22,13 @@ Deployment
 The documentation is deployed to GitHub Pages through one of these methods:
 
 Manual Deployment
+```bash
 # Generate the documentation
 npm run generate-docs
 
 # Deploy to GitHub Pages
 npm run deploy-docs
+```
 Automatic Deployment
 A GitHub Actions workflow automatically deploys the documentation when changes are pushed to the main branch.
 
@@ -34,26 +36,35 @@ Customizing the Documentation
 Adding a Public Endpoint
 To make an endpoint visible in the public documentation, add the Public tag to its JSDoc:
 
+```js
 /**
  * @swagger
  * /some/endpoint:
  *   get:
  *     summary: An endpoint description
- *     tags: [Moderation, Public]  # Include the Public tag
+ *     tags: [Moderation, Public]  // Include the Public tag
  *     ...
  */
+```
 Hiding an Endpoint
 To hide an endpoint from public documentation, ensure it doesn't have the Public tag:
 
+```js
 /**
  * @swagger
  * /some/internal/endpoint:
  *   get:
  *     summary: An internal endpoint
- *     tags: [Moderation]  # No Public tag
+ *     tags: [Moderation]  // No Public tag
  *     ...
  */
+```
 Security Considerations
 Never expose sensitive endpoints in the public documentation
 Regularly review the public documentation to ensure no internal endpoints are accidentally exposed
-The public documentation should only describe the API, not include implementation details ```
+The public documentation should only describe the API, not include implementation details
+```
+
+Which specific endpoints should be exposed in the public documentation?
+
+David responded that any endpoints involving user data should be hidden to prevent exposing sensitive information. Only endpoints that are safe and relevant for public use should be included in the public API documentation, while internal or sensitive endpoints should be filtered out to protect data privacy and security.
