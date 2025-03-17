@@ -2,12 +2,13 @@
 
 This document outlines all environment variables used by the Content Moderation Service.
 
-## Server Configuration
 
-| Variable | Description | Default | Required |
-|----------|-------------|---------|----------|
-| PORT | The port on which the server will listen | 3000 | No |
-| NODE_ENV | Application environment (development, production, test) | development | No |
+## Server Configuration
+ 
+| Variable   | Description | Default | Required |
+|----------  |-------------|---------|----------|
+| `PORT`     | The port on which the server will listen. Can be overridden via environment variable. | 3000        | Optional        |
+| `NODE_ENV` | Specifies the application environment (development, production, test). Use "development" for local, "production" for live deployment, "test" for testing. | development | Optional        |
 
 ## API Settings
 
