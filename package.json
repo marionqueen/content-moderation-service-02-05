@@ -5,7 +5,10 @@
 	"main": "dist/server.js",
 	"scripts": {
 		"start": "ts-node src/server.ts",
-		"build": "tsc"
+		"build": "tsc",
+		"generate-docs": "ts-node src/scripts/generate-api-docs.ts",
+    "predeploy-docs": "npm run generate-docs",
+    "deploy-docs": "gh-pages -d public"
 	},
 	"dependencies": {
 		"express": "^4.19.2",
@@ -17,6 +20,7 @@
 		"@types/node": "^20.12.13",
 		"@types/swagger-jsdoc": "^6.0.4",
 		"ts-node": "^10.9.2",
-		"typescript": "^5.6.2"
+		"typescript": "^5.6.2",
+		"gh-pages": "^3.2.3"
 	}
 }
