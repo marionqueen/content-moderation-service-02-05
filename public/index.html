@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Content Moderation API Documentation</title>
+  <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@4.5.0/swagger-ui.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .content {
+      padding: 20px;
+    }
+    footer {
+      background-color: #f8f9fa;
+      padding: 15px;
+      text-align: center;
+      border-top: 1px solid #e9ecef;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Content Moderation API Documentation</h1>
+    <p>Public API documentation for the Content Moderation Service</p>
+  </header>
+  
+  <div class="content">
+    <div id="swagger-ui"></div>
+  </div>
+  
+  <footer>
+    <p>&copy; 2025 Content Moderation Service. All rights reserved.</p>
+  </footer>
+
+  <script src="https://unpkg.com/swagger-ui-dist@4.5.0/swagger-ui-bundle.js"></script>
+  <script>
+    window.onload = function() {
+      const ui = SwaggerUIBundle({
+        url: "./api-docs/openapi.json",
+        dom_id: "#swagger-ui",
+        deepLinking: true,
+        presets: [
+          SwaggerUIBundle.presets.apis,
+          SwaggerUIBundle.SwaggerUIStandalonePreset
+        ],
+        layout: "BaseLayout",
+        supportedSubmitMethods: ['get', 'post'],
+        tagsSorter: 'alpha'
+      });
+      window.ui = ui;
+    };
+  </script>
+</body>
+</html>

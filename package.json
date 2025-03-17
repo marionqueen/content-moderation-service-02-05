@@ -5,11 +5,16 @@
 	"main": "dist/server.js",
 	"scripts": {
 		"start": "ts-node src/server.ts",
-		"build": "tsc"
+		"build": "tsc",
+		"generate-docs": "ts-node src/scripts/generate-api-docs.ts",
+		"predeploy-docs": "npm run generate-docs",
+		"deploy-docs": "gh-pages -d public"
 	},
 	"dependencies": {
 		"dotenv": "^16.4.7",
-		"express": "^4.19.2"
+		"express": "^4.19.2",
+		"swagger-jsdoc": "^6.2.8",
+		"swagger-ui-express": "^5.0.1"
 	},
 	"devDependencies": {
 		"@types/chai": "^5.2.0",
@@ -18,10 +23,12 @@
 		"@types/mocha": "^10.0.10",
 		"@types/node": "^20.12.13",
 		"@types/proxyquire": "^1.3.31",
+		"@types/swagger-jsdoc": "^6.0.4",
 		"chai": "^5.2.0",
 		"mocha": "^11.1.0",
 		"proxyquire": "^2.1.3",
 		"ts-node": "^10.9.2",
-		"typescript": "^5.6.2"
+		"typescript": "^5.6.2",
+		"gh-pages": "^3.2.3"
 	}
 }
